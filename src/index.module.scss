@@ -1,0 +1,16 @@
+@use './base';
+
+body {
+  font-family: base.$primary-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: base.$background;
+  max-width: 1500px;
+  margin: 50px auto;
+}
+
+@media (max-width: 992px) {
+  h2 {
+    text-align: center;
+  }
+}

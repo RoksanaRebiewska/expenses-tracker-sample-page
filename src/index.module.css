@@ -1,0 +1,16 @@
+body {
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #edf0f1;
+  max-width: 1500px;
+  margin: 50px auto;
+}
+
+@media (max-width: 992px) {
+  h2 {
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=index.module.css.map */

@@ -1,0 +1,9 @@
+@use '../../media';
+
+.data__container {
+  display: flex;
+
+  @include media.mobile {
+      flex-direction: column;
+  } 
+}

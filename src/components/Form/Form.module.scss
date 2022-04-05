@@ -1,0 +1,66 @@
+@use '../../base';
+@use '../../media';
+
+.add_expense__container {
+  margin: 0 50px;
+
+  @include media.mobile {
+      margin: 0 20px;
+    }
+
+  form {
+    width: 600px;
+    margin: 20px auto;
+    background: linear-gradient(45deg, base.$primary-mid-blue, base.$primary-light-blue);
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: base.$border-small;
+    box-shadow: base.$box-shadow;
+
+    @include media.mobile {
+      width: auto;
+    }
+
+    select, input, button {
+      width: 400px;
+      margin: 20px auto;
+      background: base.$white;
+      font-size: 1rem;
+      border: none;
+      padding: 10px;
+      box-sizing: border-box;
+      font-family: base.$primary-font;
+    
+      @include media.mobile {
+          width: 200px;
+        }
+    }
+
+    button {
+      background: base.$primary-dark-blue;
+      border-radius: base.$border-big;
+      border: 1px solid base.$black;
+      padding: 10px;
+      color: base.$black;
+      transition: base.$transition-standard;
+
+      &:hover {
+        cursor: pointer;
+        background: base.$primary-hover-blue;
+        border: 1px solid base.$white;
+        color: base.$white;
+      }
+    }
+  }
+}
+
+.error_text {
+  font-size: 1rem;
+  color: base.$red;
+  width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}

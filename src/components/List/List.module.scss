@@ -1,0 +1,54 @@
+@use '../../base';
+@use '../../media';
+
+.expenses__container {
+  padding: 0 50px;
+
+  @include media.mobile {
+      padding: 0 20px;
+    }
+
+  ul {
+    width: 600px;
+    margin: 20px auto;
+    background: linear-gradient(45deg, base.$primary-mid-blue, base.$primary-light-blue);
+    border-radius: base.$border-small;
+    box-shadow: base.$box-shadow;
+    padding: 20px;
+
+    @include media.mobile {
+      width: auto;
+    }
+  }
+
+  form {
+    width: 200px;
+    font-size: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+
+    @include media.mobile {
+        flex-direction: column;
+        width: 200px;
+        margin: auto;
+        text-align: center;
+      }
+
+    select {
+      width: 200px;
+      margin-right: 20px;
+
+      @include media.mobile {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .sum {
+    text-align: right;
+    font-size: 2rem;
+  }
+}
+
+
