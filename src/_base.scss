@@ -22,3 +22,20 @@ $border-circle: 50%;
 //others
 $box-shadow: 5px 5px 10px $grey-light;
 $transition-standard: all .3s linear;
+
+//mixins
+@mixin primary-button {
+  background: $primary-dark-blue;
+  border-radius: $border-big;
+  border: 1px solid $black;
+  padding: 10px;
+  color: $black;
+  transition: $transition-standard;
+
+  &:hover {
+    cursor: pointer;
+    background: $primary-hover-blue;
+    border: 1px solid $white;
+    color: $white;
+  }
+}

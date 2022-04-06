@@ -40,19 +40,7 @@
     }
 
     button {
-      background: base.$primary-dark-blue;
-      border-radius: base.$border-big;
-      border: 1px solid base.$black;
-      padding: 10px;
-      color: base.$black;
-      transition: base.$transition-standard;
-
-      &:hover {
-        cursor: pointer;
-        background: base.$primary-hover-blue;
-        border: 1px solid base.$white;
-        color: base.$white;
-      }
+      @include base.primary-button;
     }
   }
 }

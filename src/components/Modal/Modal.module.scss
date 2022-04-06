@@ -1,0 +1,40 @@
+@use '../../base';
+@use '../../media';
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: base.$grey-dark;
+  opacity: .5;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 50px 0;
+  background-color: base.$white;
+  border-radius: base.$border-big;
+  text-align: center;
+
+  @include media.mobile {
+    width: 90vw;
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 50px;
+  }
+
+  button {
+    @include base.primary-button;
+    width: 200px;
+    margin: 10px;
+  }
+}

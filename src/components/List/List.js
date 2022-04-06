@@ -5,22 +5,38 @@ import ApiService from '../../Api.service';
 import classes from './List.module.scss';
 import Item from '../Item/Item';
 import FilterForm from '../FilterForm/FilterForm';
+import Modal from '../Modal/Modal';
 
 const List = ({ onRemove, data, onError, onLoading }) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [modalVisible, setModalVisible] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
 
   const selectedCategoryHandler = (event) => {
     setSelectedCategory(event.target.value);
   };
 
-  const removeHandler = async (id) => {
-    const confirmation = window.confirm('Are you sure you want to delete?');
-    if (confirmation) {
-      await ApiService.httpDelete(id);
-      onRemove();
-    } else {
-      return;
-    }
+  const removeHandler = (id) => {
+    setModalVisible(true);
+    setDeleteId(id);
+  };
+
+  const confirmDeleteHandler = () => {
+    setConfirmDelete(true);
+    confirmedRemoveHandler(deleteId);
+  };
+
+  const confirmCloseDeleteHandler = () => {
+    setConfirmDelete(false);
+    setModalVisible(false);
+  };
+
+  const confirmedRemoveHandler = async (id) => {
+    await ApiService.httpDelete(id);
+    onRemove();
+
+    setModalVisible(false);
   };
 
   const filteredData =
@@ -78,6 +94,12 @@ const List = ({ onRemove, data, onError, onLoading }) => {
     <div className={classes.expenses__container}>
       <h2>List of expenses</h2>
       {content}
+      {modalVisible && (
+        <Modal
+          onConfirm={confirmDeleteHandler}
+          onClose={confirmCloseDeleteHandler}
+        />
+      )}
     </div>
   );
 };
