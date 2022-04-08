@@ -20,17 +20,14 @@ const httpGet = async () => {
     const response = await fetch(`${config.api}.json`, {
       ...config.options,
     });
+
     const data = await handleResponse(response);
 
-    const expenses = [];
-    for (const key in data) {
-      expenses.push({
-        category: data[key].category,
-        price: data[key].price,
-        date: data[key].date,
-        id: key,
-      });
-    }
+    const expenses = Object.keys(data).map((item) => ({
+      ...data[item],
+      id: item,
+    }));
+
     return expenses;
   } catch (error) {
     throw Error(error);
